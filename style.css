@@ -1,0 +1,187 @@
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('./DS-DIGIB.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Berlioz';
+    src: url('./Radioz.ttf') format('truetype');
+}
+
+
+body {
+    font-family: 'DS-Digital', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    color: #FF0000;
+}
+
+#countdown {
+    font-size: 12em;
+    font-weight: normal;
+    color: #FF0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000;
+    transition: all 0.3s ease-in-out;
+}
+
+.time-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.time {
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.separator {
+    transition: all 0.3s ease-in-out;
+}
+
+.small {
+    font-size: 0.4em;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: relative;
+    width: 3em;
+    text-align: center;
+}
+
+#countdown.zoom .time-group .time,
+#countdown.zoom .time-group .separator {
+    font-size: 0;
+    opacity: 0;
+}
+
+#countdown.zoom .time-group #seconds {
+    font-size: 3em;
+    opacity: 1;
+}
+
+#countdown.zoom .small {
+    font-size: 0.5em;
+    opacity: 1;
+}
+
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+        transform: scale(1); /* Échelle normale */
+    }
+    50%, 100% {
+        opacity: 0;
+        transform: scale(1.2); /* Agrandissement subtil */
+    }
+}
+
+.new-year-message {
+    font-family: 'Radioz';
+    font-size: 1em;
+    color: #FF0000;
+    animation: blink 0.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Clignotement dynamique */
+}
+
+.static-message {
+    font-family: Cooper_Black;
+    font-size: 1em;
+    animation: pulse 4s infinite; /* Ajout de l'animation */
+    opacity: 1; /* Toujours visible */
+}
+
+/* Animation pour grandir et rétrécir */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.96); /* Taille normale */
+    }
+    50% {
+        transform: scale(1.04); /* Agrandissement */
+    }
+}
+
+/* CSS Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+        height: auto; /* Pour éviter le débordement */
+    }
+
+    h1 {
+        font-size: 2em; /* Réduit la taille du titre */
+        margin-bottom: 15px;
+    }
+
+    #countdown {
+        font-size: 8em; /* Réduit la taille des chiffres */
+        text-shadow: 0 0 3px #FF0000, 0 0 6px #FF0000;
+        gap: 10px;
+    }
+
+    .time-group {
+        gap: 8px; /* Réduit l'espacement entre les blocs */
+    }
+
+    .separator {
+        font-size: 0.8em; /* Réduit la taille des séparateurs */
+    }
+
+    .small {
+        font-size: 0.3em; /* Ajuste les millisecondes */
+        width: auto; /* Adapte la largeur automatiquement */
+    }
+
+    .new-year-message, .static-message {
+        font-size: 1.2em; /* Ajuste le message pour la taille de l'écran */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        display: flex;
+        justify-content: center; /* Centré horizontalement */
+        align-items: center; /* Centré verticalement */
+        flex-direction: column; /* Empile les éléments verticalement si besoin */
+        height: 100vh; /* Prend toute la hauteur de l'écran */
+    }
+
+    #countdown {
+        font-size: 4.5em; /* Réduit encore plus les chiffres */
+        gap: 8px;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Titre encore plus petit */
+        margin-bottom: 10px;
+    }
+
+    .small {
+        font-size: 0.2em;
+    }
+
+    .new-year-message, .static-message {
+        font-size: 1em; /* Plus petit sur les très petits écrans */
+    }
+}
