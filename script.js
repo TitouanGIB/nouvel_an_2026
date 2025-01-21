@@ -1,5 +1,5 @@
 // Date cible : 1er janvier à minuit
-const targetDate = new Date("January 1, 2025 00:00:00").getTime();
+const targetDate = new Date("January 1, 2026 00:00:00").getTime();
 
 let countdownFinished = false; // Variable pour arrêter les mises à jour après la fin
 
