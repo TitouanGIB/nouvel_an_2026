@@ -1,5 +1,5 @@
 // Date cible : 1er janvier à minuit
-const targetDate = new Date("January 1, 2026 00:00:00").getTime();
+const targetDate = new Date("January 1, 2027 00:00:00").getTime();
 
 let countdownFinished = false; // Variable pour arrêter les mises à jour après la fin
 
@@ -11,7 +11,7 @@ function updateCountdown() {
 
     // Si le décompte est terminé
     if (difference <= 0 && !countdownFinished) {
-        countdownEl.innerHTML = '<span id="new-year-message" class="new-year-message">Bonne année 2025 🎉</span>';
+        countdownEl.innerHTML = '<span id="new-year-message" class="new-year-message">Bonne année 2027 🎉</span>';
         countdownFinished = true;
 
         // Démarre une minuterie pour arrêter le clignotement après 1 minute
